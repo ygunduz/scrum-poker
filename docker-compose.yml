@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: spoker-frontend
+    restart: unless-stopped
+    ports:
+      - "${PORT:-9191}:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:5000 
+      
   backend:
     build:
       context: ./backend
@@ -15,16 +28,3 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: spoker-frontend
-    restart: unless-stopped
-    ports:
-      - "${PORT:-9191}:80"
-    depends_on:
-      - backend
-    environment:
-      - VITE_API_URL=http://localhost:5000 
