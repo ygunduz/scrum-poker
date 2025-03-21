@@ -11,6 +11,8 @@ services:
       - "${PORT:-9191}:80"
     depends_on:
       - backend
+    environment:
+      - VITE_API_URL=https://poker.ygunduz.com
       
   backend:
     build:
