@@ -46,7 +46,7 @@ const VoteStatistics: React.FC<VoteStatisticsProps> = ({ users, revealed }) => {
   
   // Initialize with all possible values
   votedUsers.forEach(user => {
-    if (user.vote && user.vote !== '?') {
+    if (user.vote && user.vote !== '?' || user.vote && user.vote !== '☕️') {
       voteCountMap[user.vote] = (voteCountMap[user.vote] || 0) + 1;
     }
   });
