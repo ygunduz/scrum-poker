@@ -20,12 +20,10 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    environment:
-      PORT: ${PORT}
     container_name: spoker-frontend
     restart: unless-stopped
     ports:
-      - "$$PORT:80"
+      - "${PORT:9191}:80"
     depends_on:
       - backend
     environment:
