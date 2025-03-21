@@ -25,6 +25,3 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
