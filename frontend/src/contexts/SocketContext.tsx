@@ -3,7 +3,7 @@ import { io, Socket } from 'socket.io-client';
 import { Room, User } from '../types';
 
 // Get the API URL from environment variable or default to localhost
-const API_URL = import.meta.env.VITE_API_URL || '/';
+const API_URL = import.meta.env.VITE_API_URL || 'https://poker.ygunduz.com';
 
 interface SocketContextProps {
   socket: Socket | null;
