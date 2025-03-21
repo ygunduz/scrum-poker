@@ -2,6 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { Room, User } from '../types';
 
+// Get the API URL from environment variable or default to localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 interface SocketContextProps {
   socket: Socket | null;
   connected: boolean;
@@ -38,7 +41,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
   
   useEffect(() => {
     // Connect to the socket server
-    const socketInstance = io('http://localhost:5000', {
+    const socketInstance = io(API_URL, {
       transports: ['websocket'],
       autoConnect: true,
     });
@@ -63,7 +66,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
       });
     });
 
-    socketInstance.on('user_left', ({ userId, users }) => {
+    socketInstance.on('user_left', ({ users }) => {
       setCurrentRoom((prevRoom) => {
         if (!prevRoom) return null;
         return {

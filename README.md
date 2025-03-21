@@ -69,6 +69,36 @@ npm run dev
 
 The frontend will run on http://localhost:5173
 
+## Docker Deployment
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Deployment Steps
+
+1. Build and start the containers:
+
+```bash
+docker-compose up -d
+```
+
+2. Access the application at http://localhost
+
+3. Stop the containers:
+
+```bash
+docker-compose down
+```
+
+### Custom Configuration
+
+You can modify the Docker Compose environment variables in the docker-compose.yml file:
+
+- Backend port: Default is 5000
+- Frontend port: Default is 80
+
 ## Usage
 
 1. Open the app in your browser
@@ -91,4 +121,9 @@ The frontend will run on http://localhost:5173
   - Node.js
   - Express
   - Socket.io
-  - TypeScript 
+  - TypeScript
+
+- **Deployment**:
+  - Docker
+  - Docker Compose
+  - Nginx 
