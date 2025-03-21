@@ -11,8 +11,6 @@ services:
       - "${PORT:-9191}:80"
     depends_on:
       - backend
-    environment:
-      - VITE_API_URL=http://localhost:5000 
       
   backend:
     build:
