@@ -25,6 +25,7 @@ import {
 import { useSocket } from '../contexts/SocketContext';
 import CardDeck from '../components/CardDeck';
 import ParticipantsList from '../components/ParticipantsList';
+import VoteStatistics from '../components/VoteStatistics';
 
 const PokerRoomPage: React.FC = () => {
   const { roomId } = useParams<{ roomId: string }>();
@@ -119,6 +120,7 @@ const PokerRoomPage: React.FC = () => {
   const handleResetVotes = async () => {
     try {
       await resetVotes();
+      setSelectedCard(null);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -253,6 +255,11 @@ const PokerRoomPage: React.FC = () => {
               users={users}
               revealed={revealed}
               currentUserId={currentUser.id}
+            />
+            
+            <VoteStatistics 
+              users={users}
+              revealed={revealed}
             />
           </Grid>
         </Grid>

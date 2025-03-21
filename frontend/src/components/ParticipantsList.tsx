@@ -53,7 +53,7 @@ const ParticipantsList: React.FC<ParticipantsListProps> = ({
   };
 
   return (
-    <Paper elevation={2} sx={{ mt: 3, p: 2 }}>
+    <Paper elevation={2} sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
         Participants ({users.length})
       </Typography>

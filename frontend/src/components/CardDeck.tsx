@@ -17,7 +17,7 @@ const CardDeck: React.FC<CardDeckProps> = ({ selectedCard, onSelectCard, disable
       </Typography>
       <Grid container spacing={1}>
         {CARD_DECK.map((card: CardType) => (
-          <Grid item key={card.value} xs={3} sm={2} md={1}>
+          <Grid item key={card.value} xs={3} sm={3} md={2}>
             <Paper
               elevation={3}
               sx={{

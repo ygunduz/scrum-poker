@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" >
       <Box
         sx={{
           display: 'flex',
